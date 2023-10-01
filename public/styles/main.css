@@ -5,18 +5,33 @@
 :root{
     --vertical-space: 2rem; 
     --horizontal-space: 3rem; 
+    --light-color:F2D5D8;
+    --body-color:403333;
+    --heading-color:BF8E97;
+    --contrast-color:D9A9AD; 
 }
 
 body{
     padding-left: 4em;
     font-size: 10px; 
     line-height: 1.5;
-
+    background-image: linear-gradient(3deg, rgb(242,233,233),rgb(242,213,216));
+    color:var(--body-color);
 }
 h1, h2, h3{
     line-height: 1.2em;
     font-family: 'Lora', serif;
+    color: var(--heading-color); 
 
+}
+
+a{
+    color: var(--body-color); 
+    text-decoration-color: var(--contrast-color); 
+}
+
+a:hover{
+    color: var(--contrast-color); 
 }
 /* image tag inside of a body with id about */
 body#about img { height: 15em; }
