@@ -2,45 +2,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 /* spacing variables */
-:root{
+:root {
     --vertical-space: 2rem; 
     --horizontal-space: 3rem; 
-    --light-color:F2D5D8;
-    --body-color:403333;
-    --heading-color:BF8E97;
-    --contrast-color:D9A9AD; 
+    --light-color:#F2D5D8;
+    --body-color:#403333;
+    --heading-color:#BF8E97;
+    --contrast-color:#D9A9AD; 
+    --subheading-color: #D9A9AD; 
 }
 
-body{
+body {
     padding-left: 4em;
     font-size: 10px; 
     line-height: 1.5;
     background-image: linear-gradient(3deg, rgb(242,233,233),rgb(242,213,216));
-    color:var(--body-color);
+    color: var(--body-color);
 }
-h1, h2, h3{
+
+h1, h2, h3 {
     line-height: 1.2em;
     font-family: 'Lora', serif;
-    color: var(--heading-color); 
+    /* color: var(--heading-color);  */
 
 }
 
-a{
+header h1 {
+    color: var(--heading-color); 
+}
+h1, h2, h3 {
+    color: var(--heading-color); 
+}
+/* h3 {
+    color: var(--body-color); 
+} */
+
+a {
     color: var(--body-color); 
     text-decoration-color: var(--contrast-color); 
 }
 
-a:hover{
+a:hover {
     color: var(--contrast-color); 
 }
 /* image tag inside of a body with id about */
-body#about img { height: 15em; }
+body#about img { 
+    height: 15em; 
+    display: inline; 
+    float: left; 
+    margin-right: var(--horizontal-space);
+    border: 1px solid var(--heading-color);  
+    /* margin-bottom: var(--vertical-space); */
+}
 body#portfolio img { height: 15em}
 
-p {
-    max-width: 50em; 
+@media screen and (min-width: 25em) {
+    body#about img {
+        float: left; 
+        margin-bottom: var(--vertical-space);
+    }
 }
-body{
+
+body {
     display:grid;
     font-family: 'Lora', serif;
     grid-template-areas: "head head" 
@@ -51,54 +74,79 @@ body{
     grid-template-rows: auto auto 1fr auto; 
 }
 
-@media screen and (min-width: 25em){
+ @media screen and (min-width: 25em) {
     body{
         grid-template-areas: "head head"
-                              "nav main"
+                              "nav nav"
+                              "main main"
                               "foot foot";
-        grid-template-rows: auto 1fr auto;
+        grid-template-rows: auto auto 1fr auto;
     }
-}
-body > *{
+} 
+body > * {
     padding-left: var(--horizontal-space);
     padding-right: var(--horizontal-space);
 }
-body > header{
+body > header {
     grid-area: head; 
     /* background-color: yellow;  */
 
 }
-body > nav{
+body > nav {
     grid-area: nav;
+    /* border-bottom: 2px solid var(--contrast-color); */
     /* background-color: blue;  */
 }
 body > nav ul {
+    float: right; 
+}
+body > main > *:first-child::before {
+    content: ""; 
+    /* height: 2px;  */
+    /* width: 100%;  */
+    border-top: 2px solid var(--subheading-color); 
+    /* margin-top: var(--vertical-space); */
+    display: block; 
+    padding-top: var(--vertical-space); 
+}
+body {
+    max-width: 50rem; 
+}
+body > nav ul {
     list-style-type: none; 
+    margin: 0; 
     padding: 0; 
+    line-height: 2.4; 
+    float: right; 
+    /* padding-bottom: var(--vertical-space); */
+    /* border-bottom: 2px solid var(--contrast-color); */
 }
 
-/* body > nav ul li {
-    display: inline; 
+body > nav ul li {
+    display: inline-block; 
     padding-right: 1 rem; 
-} */
+}
 
-body > main{
+body > main {
     grid-area: main; 
     /* background-color: purple;  */
 }
-body > footer{
+body > footer {
     grid-area: foot; 
     /* background-color: red;  */
 }
-header, footer{
+header, footer {
     padding-top: var(--vertical-space);
     padding-bottom: var(--vertical-space); 
 }
-header h1, footer h1{
+header {
+   padding-bottom: 0;  
+}
+header h1, footer h1 {
     margin: 0;
 }
 
-body #portfolio ul#portfolioItems{
+body #portfolio ul#portfolioItems {
     display: flex; 
     flex-wrap: wrap; 
     flex: 1; 
@@ -107,13 +155,14 @@ body #portfolio ul#portfolioItems{
 }
 
 /* makes the grid look different on phone screen */
-@media screen and (min-width: 25em){
+@media screen and (min-width: 25em) {
     body#portfolio ul#portfolioItems li{
         flex-basis: 48%; 
         padding-right: 2%; 
     }
 }
 
-body#portfolio il#portfolioItems li img {
+body#portfolio ul#portfolioItems li img {
     max-width: 100%; 
+    margin-left: -0.64em; 
 }
