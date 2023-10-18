@@ -10,6 +10,7 @@
     
     </head>
     <body id="about">
+
         <header>
             <h1>Esly Cerritos</h1>
         </header>
@@ -26,20 +27,39 @@
         <!-- go back and add image -->
         <img src="images/avatar.jpg" alt="Esly Cerritos circa 2023"/>
         <p>My name is Esly Cerritos I am a third year computer science major at the Rose-Hulman institute of Technology. I am interested in front-end software development and am currently looking for internship roles for the summer of 2024. 
-            My hobbies include reading, running, watching movies. I have two cats their names are Camellia and Gansito. I was born in El Salvador and I moved to the United States when I was 2 years old. 
+            My hobbies include reading, running, and watching movies. I have two cats their names are Camellia and Gansito. I was born in El Salvador and I moved to the United States when I was 2 years old. 
         </p>
-        <p>Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Aenean pharetra magna ac placerat vestibulum lectus 
+        <!-- <p>Imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada. Aenean pharetra magna ac placerat vestibulum lectus 
             mauris ultrices eros. Massa tincidunt dui ut ornare lectus sit amet est. Tincidunt id aliquet risus feugiat in ante metus dictum. 
             Malesuada bibendum arcu vitae elementum curabitur vitae. Senectus et netus et malesuada fames ac. Ac ut consequat semper viverra 
             nam libero justo laoreet sit. Viverra aliquet eget sit amet tellus cras adipiscing. Fermentum leo vel orci porta non pulvinar neque 
             laoreet. Integer malesuada nunc vel risus commodo viverra maecenas accumsan. At erat pellentesque adipiscing commodo. Diam maecenas 
             sed enim ut sem viverra aliquet eget sit. Pellentesque elit eget gravida cum sociis natoque penatibus et. Ultricies leo integer 
             malesuada nunc vel risus commodo viverra maecenas.
-        </p>
+        </p> --> 
         </main>
         <footer>
             You can email at cerritem@rose-hulman.edu
         </footer>
+        <div class="cursor"></div>
+        <script>
+            const cursor = document.querySelector('.cursor');
+
+            document.addEventListener('mousemove', e => {
+                cursor.setAttribute("style", "top: " + (e.pageY-10)+"px; left: " + (e.pageX-55) + "px;")
+                // cursor.style.left = e.clientX + "px";
+                // cursor.style.top = e.clientY + "px";
+            })
+            document.addEventListener('click', () => {
+                cursor.classList.add("expand"); 
+
+                setTimeout(() => {
+                    cursor.classList.remove("expand"); 
+                }, 500)
+            })
+            
+        </script>
+
         <script src="scipts/main.js"></script>
     </body>
 </html>

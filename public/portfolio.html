@@ -26,7 +26,7 @@
             <ul id="portfolioItems">
                 <li>
                     <h2><a href="a">Project Name</a></h2>
-                    <img src="images/portfolio/project.png" alt="a screenshot of portfolio project" />
+                    <!-- <img src="images/portfolio/project.png" alt="a screenshot of portfolio project" /> -->
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus. 
                     </p>
@@ -36,7 +36,7 @@
 
                 <li>
                     <h2><a href="a">Project Name</a></h2>
-                    <img src="images/portfolio/project.png" alt="a screenshot of portfolio project" />
+                    <!-- <img src="images/portfolio/project.png" alt="a screenshot of portfolio project" /> -->
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                         magna aliqua. Porttitor massa id neque aliquam vestibulum morbi blandit cursus. 
                     </p>
@@ -49,6 +49,25 @@
         <footer>
             You can email at cerritem@rose-hulman.edu
         </footer>
+
+        <div class="cursor"></div>
+        <script>
+            const cursor = document.querySelector('.cursor');
+
+            document.addEventListener('mousemove', e => {
+                cursor.setAttribute("style", "top: " + (e.pageY-10)+"px; left: " + (e.pageX-55) + "px;")
+                // cursor.style.left = e.clientX + "px";
+                // cursor.style.top = e.clientY + "px";
+            })
+            document.addEventListener('click', () => {
+                cursor.classList.add("expand"); 
+
+                setTimeout(() => {
+                    cursor.classList.remove("expand"); 
+                }, 500)
+            })
+            
+        </script>
         <script src="scipts/main.js"></script>
     </body>
 </html>
